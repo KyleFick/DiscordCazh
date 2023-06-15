@@ -37,7 +37,7 @@ ECHO                    ==============================================
 ECHO.
 ECHO.
 ECHO.
-CHOICE /C 123456  /M "Enter your choice:"
+CHOICE /C 123  /M "Enter your choice:"
 ::Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 3 GOTO Exit
 IF ERRORLEVEL 2 GOTO AddCard
@@ -46,7 +46,8 @@ IF ERRORLEVEL 1 GOTO Newczah
 
 
 
-:Newczah                                                                                                  
+:Newczah      
+CLS                                                                                            
 ECHO   ___ __  ___ __    __  
 ECHO  / _//  \| _ \ _\ /' _/ 
 ECHO | \_| /\ | v / v |`._`.  
@@ -76,8 +77,20 @@ ECHO │┼│                                      │┼│
 ECHO │┼┼──────────────────────────────────────┼┼│
 ECHO │┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼│
 ECHO └──────────────────────────────────────────┘
-
+Timeout /t 5 /nobreak >nul
+CLS
 
 :AddCard
+CLS
+echo Please enter a new card:
+set /p newcard=New Card:
 
+echo. >> "CardsList.txt"
+echo %newcard% >> "CardsList.txt"
+echo Saving.............
+Timeout /t 5 /nobreak >nul
+echo Thank you 
+Timeout /t 1 /nobreak >nul
+CLS
+GOTO MENU
 
